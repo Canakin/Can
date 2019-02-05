@@ -1,0 +1,37 @@
+"""
+Note-taking program
+Author: Can Cimenser
+
+A) Read the file
+B) Delete the file and start over
+C) Append the file
+
+"""
+import os
+# Here we import os module
+
+files = []
+filename = input("Please enter the file name: ")
+
+while len(files) < 5:
+    if filename in files:
+        ask = input("Which action you choose: \na)read \nb)delete \nc)append")
+        if ask == "a":
+            file = open(filename,"r")
+            file.read()
+        elif ask == "b":
+            os.remove(filename)
+            file = open(filename,"r+")
+        elif ask == "c":
+            file = open(filename, "a+")
+            text = input("Enter the text you want to append to the file: ")
+            file.write(text)
+    else:
+        file = open(filename,"w")
+        filename.append(files)
+        text = input("Enter the text you want to append to the file: ")
+        file.write(text)
+        file.close()
+
+
+
